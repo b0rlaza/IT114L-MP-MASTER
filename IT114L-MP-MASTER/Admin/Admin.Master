@@ -1,0 +1,27 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="IT114L_MP_MASTER.Admin.Admin" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <h1>Admin Panel</h1>
+    <form id="form1" runat="server">
+        <div>
+            Welcome, <asp:Label ID="lblName" runat="server" Text="Name"></asp:Label><br />
+            <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" /><br />
+            <asp:HyperLink ID="linkSiteHome" runat="server" NavigateUrl="~/Default.aspx">Site Home</asp:HyperLink> | 
+            <a href="Admin.aspx">Admin Home</a> | 
+            <a href="ListUsers.aspx">View Users</a> |  
+            <a href="ListProducts.aspx">View Products</a> | 
+            <a href="ListTransactions.aspx">View Shop Transactions</a> | 
+            <a href="ListDeliveries.aspx">View Deliveries</a>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

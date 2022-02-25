@@ -1,0 +1,26 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Frontend.master.cs" Inherits="IT114L_MP_MASTER.Frontend" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>PETS</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:Image ID="imgLogo" runat="server" ImageUrl="~/images/pets-logo.png" Height="90px" /><br />
+            <asp:HyperLink ID="linkHome" runat="server" NavigateUrl="~/Default.aspx">Home</asp:HyperLink> | 
+            <asp:HyperLink ID="linkShop" runat="server" NavigateUrl="~/Shop/Catalogue.aspx">Shop</asp:HyperLink> | 
+            <a href="#">Grooming</a><br />
+            <asp:HyperLink ID="linkMyAccount" runat="server" Text="My Account" NavigateUrl="~/MyAccount.aspx"></asp:HyperLink> 
+            <asp:LinkButton ID="linkBtnLogout" runat="server" Text="Logout" OnClick="linkBtnLogout_Click"></asp:LinkButton>
+            <asp:HyperLink ID="linkAdminPanel" runat="server" NavigateUrl="~/Admin/Admin.aspx" Visible="False">Admin Panel</asp:HyperLink>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
