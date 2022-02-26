@@ -11,10 +11,36 @@ namespace IT114L_MP_MASTER.Classes
     {
         static string dbConn = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
 
+        public static int LatestBookingID()
+        {
+            int latestID = 0;
+            string query = $"select max(booking_id) from BookingTBL";
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(dbConn))
+                {
+                    //Run the SQL Query
+                    SqlCommand command = new SqlCommand(query, connection);
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        latestID = reader.GetInt32(0);
+                    }
+                    reader.Close();
+                };
+            }
+            catch
+            {
+
+            }
+            return latestID;
+        }
+
         public static void CreateBooking(int bookingID, int serviceID, int userID, string date, string timeSlot)
         {
             //creates a booking
-            int transactionID = bookingID;// REPLACE WITH GET LATEST TRANSACTION ID WHEN MADE LATER since the id needs to be made at time of query
+            int transactionID = ServiceManagement.GetLatestTransaction() + 1;
             string query = $"insert into BookingTBL values({bookingID},{userID},NULL,{serviceID},{transactionID},'{date}','{timeSlot}','Pending Approval')";
             using (SqlConnection connection = new SqlConnection(dbConn))
             {
