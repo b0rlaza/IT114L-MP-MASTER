@@ -189,6 +189,7 @@
       <DependentUpon>ListProducts.aspx</DependentUpon>
     </Compile>
     <Compile Include="Classes\BookingManagement.cs" />
+    <Compile Include="Classes\ServiceManagement.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
